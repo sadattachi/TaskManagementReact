@@ -11,23 +11,28 @@ class NavComp extends Component {
     };
   }
   logout() {
-    let token = localStorage.getItem('token')
+    let token = localStorage.getItem("token");
+    console.log(localStorage.getItem("token"))
+    console.log(token);
+    console.log(localStorage.getItem("token") == null)
+    console.log(token == null)
     fetch("http://127.0.0.1:3000/users/sign_out", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": `Bearer ${token}`
+        "Authorization": `${token}`
       }
     }
     ).then((res) => {
       return res.json()
     })
       .then((data) => {
-        console.log(`Bearer ${token}`);
+        console.log(`${token}`);
         console.log(data.message);
-        if (data.message == "Logged out.") {
+        if (data.message === "Logged out.") {
           localStorage.removeItem("token");
+          window.location.reload(false);
         }
       });;
   }
@@ -38,7 +43,7 @@ class NavComp extends Component {
           <Navbar.Brand href="/" className="me-auto p-2">
             Task Management App
           </Navbar.Brand>
-          {localStorage.getItem("token") == null ?
+          {localStorage.getItem("token") === null ?
             <>
               <Link className="btn btn-secondary" to="/login">Login</Link>
               <Link className="ms-1 btn btn-dark" to="/signup">Sign Up</Link>
