@@ -63,14 +63,10 @@ class LoginPage extends Component {
           Log in
         </Button>
       </Form>
-      //   <Button variant="outline-success" onClick={() => this.login()}>
-      //       Login
-      //     </Button>
     );
   }
 }
 
-// export default LoginPage;
 
 export default function (props) {
   const navigate = useNavigate();

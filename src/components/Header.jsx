@@ -11,11 +11,10 @@ class NavComp extends Component {
     };
   }
   logout() {
+    // localStorage.removeItem("token");
+
+
     let token = localStorage.getItem("token");
-    console.log(localStorage.getItem("token"))
-    console.log(token);
-    console.log(localStorage.getItem("token") == null)
-    console.log(token == null)
     fetch("http://127.0.0.1:3000/users/sign_out", {
       method: "DELETE",
       headers: {
@@ -49,6 +48,8 @@ class NavComp extends Component {
               <Link className="ms-1 btn btn-dark" to="/signup">Sign Up</Link>
             </> :
             <>
+              <Link className="btn btn-secondary" to="/workers">Workers</Link>
+
               <Button className="btn btn-secondary" onClick={() => this.logout()}>Log out</Button>
             </>
           }
