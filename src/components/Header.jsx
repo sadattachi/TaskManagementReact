@@ -48,7 +48,8 @@ class NavComp extends Component {
               <Link className="ms-1 btn btn-dark" to="/signup">Sign Up</Link>
             </> :
             <>
-              <Link className="btn btn-secondary" to="/workers">Workers</Link>
+              <Link className="btn btn-secondary me-2" to="/workers">Workers</Link>
+              <Link className="btn btn-secondary me-2" to="/tickets">Tickets</Link>
 
               <Button className="btn btn-secondary" onClick={() => this.logout()}>Log out</Button>
             </>
